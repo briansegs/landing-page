@@ -25,6 +25,13 @@
  *
 */
 
+let scroll = function () {
+    let elmnt = document.querySelector('.your-active-class');
+    elmnt.scrollIntoView({
+        behavior: "smooth",
+    });
+}
+
 let sections = document.querySelectorAll('section');
 let nav = document.getElementById('navbar__list');
 for (let section of sections) {
@@ -32,6 +39,7 @@ for (let section of sections) {
     li.setAttribute('class', 'menu__link')
     li.innerText = section.dataset.nav;
     nav.appendChild(li);
+    li.addEventListener('click', scroll)
 };
 
 
