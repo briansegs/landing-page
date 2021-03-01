@@ -2,8 +2,8 @@
  *
  * CSS written based on SMACSS architecture.
  * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
+ *
+ * For simplicity, no reset or normalize is added.
  * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
  *
 */
@@ -79,7 +79,7 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #cc1;
 }
 
 .navbar__menu .menu__link:hover {
@@ -90,11 +90,13 @@ section {
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: rgba(134, 134, 134, 0);
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 10%;
     z-index: 5;
+    text-align: right;
+    margin-left: 90%;
 }
 
 /* Footer Styles */
@@ -126,7 +128,7 @@ section {
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
-    text-align: right; 
+    text-align: right;
 }
 
 /* Background Circles */
@@ -217,7 +219,7 @@ section.your-active-class .landing__container::after {
 	}
 	to {
 		transform: rotate(360deg)
-		           translate(-1em) 
+		           translate(-1em)
 		           rotate(-360deg);
 	}
 }
