@@ -28,12 +28,11 @@ const sections = document.querySelectorAll('section');
 
 function scrollToDiv(id) {
 	let div = document.getElementById(id);
-	div.scrollIntoView(
-		{
-			block: 'start',
-			behavior: 'smooth',
-			inline: 'start'
-		});
+	div.scrollIntoView({
+		block: 'start',
+		behavior: 'smooth',
+		inline: 'start'
+	});
 };
 
 function toggleActiveDiv() {
@@ -56,7 +55,7 @@ for (let section of sections) {
 	li.setAttribute('class', 'menu__link');
 	li.innerText = sectionName;
     li.addEventListener('click', function () {
-	 scrollToDiv(id);
+		scrollToDiv(id);
 	});
 	navBar.appendChild(li);
 };
