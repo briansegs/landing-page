@@ -13,10 +13,10 @@ function toggleActiveDiv() {
 	let active = "your-active-class";
 	let current = document.getElementsByClassName(active);
 	for (section of sections) {
-			let fullView = section.getBoundingClientRect().top + section.getBoundingClientRect().bottom;
-		if (fullView < window.innerHeight) {
-			current[0].className = current[0].className.replace(active, "");
-			section.className += active;
+			let wholeDiv = section.getBoundingClientRect().top + section.getBoundingClientRect().bottom;
+		if (wholeDiv < window.innerHeight) {
+			current[0].classList.remove(active);
+			section.classList.add(active);
 		}
 	}
 }
