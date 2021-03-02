@@ -24,41 +24,44 @@
  * Start Helper Functions
  *
 */
-let sections = document.querySelectorAll('section');
-let nav = document.getElementById('navbar__list');
+const sections = document.querySelectorAll('section');
 
+function scrollToDiv(id) {
+	let div = document.getElementById(id);
+	div.scrollIntoView(
+		{
+			block: 'start',
+			behavior: 'smooth',
+			inline: 'start'
+		});
+};
 
+function toggleActiveDiv() {
+	let active = "your-active-class";
+	let current = document.getElementsByClassName(active);
+	for (section of sections) {
+			let fullView = section.getBoundingClientRect().top + section.getBoundingClientRect().bottom;
+		if (fullView < window.innerHeight) {
+			current[0].className = current[0].className.replace(active, "");
+			section.className += active;
+		}
+	}
+}
 
 for (let section of sections) {
     let li = document.createElement('li');
-    let name = section.id;
-
-	li.setAttribute('class', 'menu__link')
-	li.innerText = section.dataset.nav;
+    let id = section.id;
+	let sectionName = section.dataset.nav;
+	let navBar = document.getElementById('navbar__list');
+	li.setAttribute('class', 'menu__link');
+	li.innerText = sectionName;
     li.addEventListener('click', function () {
-      let e = document.getElementById(name);
-      e.scrollIntoView({
-        block: 'start',
-        behavior: 'smooth',
-        inline: 'start'
-      });
-    })
-
-    nav.appendChild(li);
+	 scrollToDiv(id);
+	});
+	navBar.appendChild(li);
 };
 
-
-window.addEventListener('scroll', function () {
-	let current = document.getElementsByClassName("your-active-class");
-	for (section of sections) {
-		let fullView = section.getBoundingClientRect().top + section.getBoundingClientRect().bottom;
-		if (fullView < window.innerHeight)
-		{
-			current[0].className = current[0].className.replace("your-active-class", "");
-			section.className += "your-active-class";
-		}
-	}
-});
+window.addEventListener('scroll', toggleActiveDiv);
 
 
 /**
